@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pmNodes
-
+import json
 
 # get article by 8-digit pubmed ID
 # ID appears in URL: https://pubmed.ncbi.nlm.nih.gov/<**ID**>/
@@ -25,8 +25,10 @@ def getByArticleID(articleID):
     #fetch authors list div
     divs = articleSoup.find("div", {"class": "authors-list"})
     #fetch the items of the authors list
-    spans = divs.find_all('span', attrs={'class':'authors-list-item'})
-
+    try:
+        spans = divs.find_all('span', attrs={'class':'authors-list-item'})
+    except:
+        spans = []    
 
     for span in spans:
         #initialize variables to None 
@@ -104,14 +106,45 @@ def getByArticleID(articleID):
 
 
 
+#https://pubmed.ncbi.nlm.nih.gov/38565142/?format=pubmed
+#print(getByArticleID(38565142))
 
-print(getByArticleID(38565142))
+def getByJournal(jqry):
+    try:
+        assert type(jqry) is str
+    except Exception as e:
+        print("Assertion Error: A string is required but you passed a: " + str(type(jqry)))
+        return(None)
+    #create list to store article IDs
+    articleIDList = []
+    for pageval in range(1, 10):
+        r = requests.get("https://pubmed.ncbi.nlm.nih.gov/"+jqry+"&page="+str(pageval))
+        articleList = r.text
+        articleListSoup = BeautifulSoup(articleList, 'html.parser')
+        #fetch the items of the authors list
+        links = articleListSoup.find_all('a', attrs={'class':'docsum-title'})
+        for link in links:
+            idlink = link['href']            
+            articleIDList.append(idlink)
+    return(articleIDList)
 
 def getByAuthorID(authorID):
     try:
         assert type(authorID) is int
-    except:
+    except: 
         print("Assertion Error: An integer is required but you passed a: " + str(type(authorID)))
         return(-1)
     r = requests.get("https://pubmed.ncbi.nlm.nih.gov/"+str(authorID) + "/")
-        
+
+articlesForJournal = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_order=desc'))
+articleStore = []
+for i in range(0, len(articlesForJournal)):
+    print(str(i) + " of "+ str(len(articlesForJournal)))
+    articleStore.append(getByArticleID(int(articlesForJournal[i].replace("/",""))))
+
+with open("cell.json", "w") as final:
+    json.dump(articleStore, final)
+ 
+
+
+

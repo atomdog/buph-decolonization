@@ -18,15 +18,15 @@ def loadArticleJson(filetitle):
             rv = ''
             if(authorship['affiliationTitle'] is not None):
                 if('Electronic address' in authorship['affiliationTitle']):
-                    beforeEmail = authorship['affiliationTitle'].split('Electronic address')[0]
-                    rv = beforeEmail
+                    afterEmail = authorship['affiliationTitle'].split('Electronic address')[1]
+                    rv = afterEmail
                 else:
                     rv = authorship['affiliationTitle']
             rv = rv.split(";")[0]
             articleCooperation.append(rv)
             if( not G.has_node(rv)):
                 G.add_node(rv)
-                labeldict[rv] = authorship['authorName']
+                labeldict[rv] = rv
                 if(i['journalTitle'] == "Cell"):
                     color_map.append('green')
                 elif(i['journalTitle'] == "Lancet"):
@@ -52,12 +52,12 @@ def loadArticleJson(filetitle):
         averageconnectedness += len(G.edges(i))
     averageconnectedness = averageconnectedness/ len(G.nodes())
 
-    fig, axe = plt.subplots(figsize=(24,14))
-    axe.set_title('Authorship Colab. Network (By Email) - Average # of edges: '+str(averageconnectedness), loc='right')
+    fig, axe = plt.subplots(figsize=(28,18))
+    axe.set_title('Authorship Colab. Network (By Email Domain) - Average # of edges: '+str(averageconnectedness), loc='right')
 
 
     pos = nx.spring_layout(G)
-    nx.draw(G, pos, node_color=color_map, node_size=2, labels=labeldict)
+    nx.draw(G, pos, node_color=color_map, node_size=2, labels=labeldict, with_labels=False)
     nx.draw_networkx_labels(G, pos, font_size=5, font_color='k', font_family='sans-serif')
     plt.show()
     plt.savefig("jun21_authorship")

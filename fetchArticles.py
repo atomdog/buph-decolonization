@@ -136,13 +136,24 @@ def getByAuthorID(authorID):
         return(-1)
     r = requests.get("https://pubmed.ncbi.nlm.nih.gov/"+str(authorID) + "/")
 
-articlesForJournal = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_order=desc'))
-articleStore = []
-for i in range(0, len(articlesForJournal)):
-    print(str(i) + " of "+ str(len(articlesForJournal)))
-    articleStore.append(getByArticleID(int(articlesForJournal[i].replace("/",""))))
+articlesForJournal_cell = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_order=desc'))
+articlesForJournal_lancet = (getByJournal('?term="Lancet"%5Bjour%5D&sort=date&sort_order=desc'))
+articlesForJournal_ajph = (getByJournal('?term="Am+J+Public+Health"%5Bjour%5D&sort=date&sort_order=desc'))
 
-with open("cell.json", "w") as final:
+articleStore = []
+for i in range(0, len(articlesForJournal_cell)):
+    print(str(i) + " of "+ str(len(articlesForJournal_cell)))
+    articleStore.append(getByArticleID(int(articlesForJournal_cell[i].replace("/",""))))
+    
+for i in range(0, len(articlesForJournal_lancet)):
+    print(str(i) + " of "+ str(len(articlesForJournal_lancet)))
+    articleStore.append(getByArticleID(int(articlesForJournal_lancet[i].replace("/",""))))
+
+for i in range(0, len(articlesForJournal_ajph)):
+    print(str(i) + " of "+ str(len(articlesForJournal_ajph)))
+    articleStore.append(getByArticleID(int(articlesForJournal_ajph[i].replace("/",""))))
+    
+with open("cell2.json", "w") as final:
     json.dump(articleStore, final)
  
 

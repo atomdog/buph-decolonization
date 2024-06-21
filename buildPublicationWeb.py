@@ -9,6 +9,9 @@ def loadArticleJson(filetitle):
     # Iterating through the json
     # list
     i_index = 0
+    color_map = []
+    labeldict = {}
+
     for i in data:
         articleCooperation = []
         for authorship in i['authorship']:
@@ -23,6 +26,14 @@ def loadArticleJson(filetitle):
             articleCooperation.append(rv)
             if( not G.has_node(rv)):
                 G.add_node(rv)
+                labeldict[rv] = authorship['authorName']
+                if(i['journalTitle'] == "Cell"):
+                    color_map.append('green')
+                elif(i['journalTitle'] == "Lancet"):
+                    color_map.append('red')
+                else:
+                    color_map.append('blue')
+
             
         for n in articleCooperation:
             for n2 in articleCooperation:
@@ -34,17 +45,21 @@ def loadArticleJson(filetitle):
         #print(articleCooperation)
 
     #print(G.edges())
+
     averageconnectedness = 0
     for i in G.nodes():
         print(len(G.edges(i)))
         averageconnectedness += len(G.edges(i))
     averageconnectedness = averageconnectedness/ len(G.nodes())
+
     fig, axe = plt.subplots(figsize=(24,14))
-    axe.set_title('Affil. Colab Network- Average # of edges: '+str(averageconnectedness), loc='right')
+    axe.set_title('Authorship Colab. Network (By Email) - Average # of edges: '+str(averageconnectedness), loc='right')
 
-    pos = nx.kamada_kawai_layout(G)
-    nx.draw(G, pos, node_size=1)
-    #nx.draw_networkx_labels(G, pos, font_size=5, font_color='k', font_family='sans-serif')
+
+    pos = nx.spring_layout(G)
+    nx.draw(G, pos, node_color=color_map, node_size=2, labels=labeldict)
+    nx.draw_networkx_labels(G, pos, font_size=5, font_color='k', font_family='sans-serif')
     plt.show()
+    plt.savefig("jun21_authorship")
 
-loadArticleJson('cell.json')
+loadArticleJson('cell2.json')

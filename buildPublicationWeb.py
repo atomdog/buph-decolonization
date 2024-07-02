@@ -206,11 +206,11 @@ def extract_authorship_location(filetitle):
                 
 
                 
-#G = extract_authorship_location('cell3.json')
+G = extract_authorship_location('cell4.json')
 #createFoliumMap(G)
 #loadArticleJson('cell2.json')
 import pickle
-#pickle.dump(G, open('g.pickle', 'wb'))
+pickle.dump(G, open('g.pickle', 'wb'))
 import folium
 # load graph object from file
 G = pickle.load(open('g.pickle', 'rb'))
@@ -218,18 +218,15 @@ G = pickle.load(open('g.pickle', 'rb'))
 def createFoliumMap(G):
     m = folium.Map(location=[41.9, -97.3], zoom_start=4)
     for n,d in G.nodes(data=True):
-        for destnode in  G.edges(n, data=True):
-            #print(G[n]['lat'])
-
-            print(G.nodes.data()[None:1:None])
-
-            locations = [(d['lat'], d['long']),(de.lat,de.long)]
+        for neighbor in G.neighbors(n):
+            print(G.nodes[neighbor]["lat"])
+            locations = [(d['lat'], d['long']),(G.nodes[neighbor]["lat"],G.nodes[neighbor]["long"])]
             
             folium.PolyLine(locations,
                             color='red',
-                            weight=15,
-                            opacity=0.8).add_to(m)
+                            weight=0.5,
+                            opacity=0.1).add_to(m)
 
-    m.save("connectionsgeo.html")
+    m.save("geovis_cell_x.html")
 
 createFoliumMap(G)

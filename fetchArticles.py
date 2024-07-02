@@ -117,7 +117,7 @@ def getByJournal(jqry):
         return(None)
     #create list to store article IDs
     articleIDList = []
-    for pageval in range(1,2):
+    for pageval in range(1,6):
         r = requests.get("https://pubmed.ncbi.nlm.nih.gov/"+jqry+"&page="+str(pageval))
         articleList = r.text
         articleListSoup = BeautifulSoup(articleList, 'html.parser')
@@ -137,14 +137,14 @@ def getByAuthorID(authorID):
     r = requests.get("https://pubmed.ncbi.nlm.nih.gov/"+str(authorID) + "/")
 
 articlesForJournal_cell = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_order=desc'))
-#articlesForJournal_lancet = (getByJournal('?term="Lancet"%5Bjour%5D&sort=date&sort_order=desc'))
-#articlesForJournal_ajph = (getByJournal('?term="Am+J+Public+Health"%5Bjour%5D&sort=date&sort_order=desc'))
+articlesForJournal_lancet = (getByJournal('?term="Lancet"%5Bjour%5D&sort=date&sort_order=desc'))
+articlesForJournal_ajph = (getByJournal('?term="Am+J+Public+Health"%5Bjour%5D&sort=date&sort_order=desc'))
 
 articleStore = []
 for i in range(0, len(articlesForJournal_cell)):
     print(str(i) + " of "+ str(len(articlesForJournal_cell)))
     articleStore.append(getByArticleID(int(articlesForJournal_cell[i].replace("/",""))))
-'''
+
 for i in range(0, len(articlesForJournal_lancet)):
     print(str(i) + " of "+ str(len(articlesForJournal_lancet)))
     articleStore.append(getByArticleID(int(articlesForJournal_lancet[i].replace("/",""))))
@@ -152,9 +152,9 @@ for i in range(0, len(articlesForJournal_lancet)):
 for i in range(0, len(articlesForJournal_ajph)):
     print(str(i) + " of "+ str(len(articlesForJournal_ajph)))
     articleStore.append(getByArticleID(int(articlesForJournal_ajph[i].replace("/",""))))
-'''
 
-with open("cell3.json", "w") as final:
+
+with open("cell5.json", "w") as final:
     json.dump(articleStore, final)
  
 

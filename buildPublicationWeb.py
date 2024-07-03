@@ -206,7 +206,7 @@ def extract_authorship_location(filetitle):
                 
 
                 
-G = extract_authorship_location('cell4.json')
+G = extract_authorship_location('cell5.json')
 #createFoliumMap(G)
 #loadArticleJson('cell2.json')
 import pickle

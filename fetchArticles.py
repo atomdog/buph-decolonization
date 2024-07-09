@@ -139,6 +139,7 @@ def getByAuthorID(authorID):
 articlesForJournal_cell = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_order=desc'))
 articlesForJournal_lancet = (getByJournal('?term="Lancet"%5Bjour%5D&sort=date&sort_order=desc'))
 articlesForJournal_ajph = (getByJournal('?term="Am+J+Public+Health"%5Bjour%5D&sort=date&sort_order=desc'))
+articlesForJournal_bmcph = (getByJournal('?sort=date&term="BMC+Public+Health"%5BJournal%5D'))
 
 articleStore = []
 for i in range(0, len(articlesForJournal_cell)):
@@ -153,8 +154,12 @@ for i in range(0, len(articlesForJournal_ajph)):
     print(str(i) + " of "+ str(len(articlesForJournal_ajph)))
     articleStore.append(getByArticleID(int(articlesForJournal_ajph[i].replace("/",""))))
 
+for i in range(0, len(articlesForJournal_bmcph)):
+    print(str(i) + " of "+ str(len(articlesForJournal_bmcph)))
+    articleStore.append(getByArticleID(int(articlesForJournal_bmcph[i].replace("/",""))))
 
-with open("cell5.json", "w") as final:
+
+with open("cell6.json", "w") as final:
     json.dump(articleStore, final)
  
 

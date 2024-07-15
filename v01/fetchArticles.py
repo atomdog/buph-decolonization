@@ -17,6 +17,7 @@ def getByArticleID(article_id):
         "authorsList": [],
         "departmentList": []
     }
+
     flags = {"titleActive": False, "abstractActive": False, "departmentActive": False}
     for line in lines:
         if line.startswith("DP"):
@@ -74,7 +75,7 @@ def getByJournal(journal_query, pagenum):
     return article_id_list
 
 def mapboxGeolocate(fuzzloc):
-    print(">> Accessing Mapbox API: " + fuzzloc)
+    #print(">> Accessing Mapbox API: " + fuzzloc)
     location =[]
     url = "https://api.mapbox.com/search/geocode/v6/forward?q="+fuzzloc+"&access_token="+MAPBOXTOKEN
     data = requests.get(url).text
@@ -84,14 +85,15 @@ def mapboxGeolocate(fuzzloc):
         # Extract the coordinates
         coordinates = data['features'][0]['geometry']['coordinates']
         location = [coordinates[1], coordinates[0]]
-    print(">> Mapbox Query Resulted in: " +str(location))
+    
+    #print(">> Mapbox Query Resulted in: " +str(location))
 
     return(location)
 
 
 def CleanExtractDepartmentLocation(departmentstring):
     latlong = None
-    print("> Cleaning and Extracting Department Location: ")
+    #print("> Cleaning and Extracting Department Location: ")
     if("Electronic address:" in departmentstring):
         departmentstring = departmentstring.split("Electronic address:")[0]
     if(";" in departmentstring):
@@ -110,8 +112,30 @@ articlesForJournal_cell = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_o
 articleStore = []
 for i in range(0, len(articlesForJournal_cell)):
     print(str(i) + " of "+ str(len(articlesForJournal_cell)))
-    articleStore.append(getByArticleID(int(articlesForJournal_cell[i].replace("/",""))))
+    articleStore.append()
 
 #print(articleStore)
-for i in articleStore[0]['departmentList']:
-    print(CleanExtractDepartmentLocation(i))
+def aggregate_by_journalquery(querystr):
+    articlesForJournal= (getByJournal(querystr, 1))
+    for colel
+    getByArticleID(int(articlesForJournal[i].replace("/","")))
+    articleItems = articleStore[i]['articleTitle']
+    authorIDList = []
+    departmentIDList = []
+    article_id = insert_article(articleStore[i]['articleTitle'], 
+                                articleStore[i]['journalTitle'],
+                                articleStore[i]['datePublished'],
+                                articleStore[i]['abstract'])
+
+    for author in articleStore[i]['authorList']:
+        authorID = insert_author(author)
+        authorIDList.append(authorID)
+
+    for department in articleStore[i]['departmentList']
+        extracted = CleanExtractDepartmentLocation(department)
+        departmentID = insert_department(extracted[0], extracted[1][0], extracted[1][1])
+        departmentIDList.append(departmentID)
+    
+    
+
+    #print(CleanExtractDepartmentLocation(i))

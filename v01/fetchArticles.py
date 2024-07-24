@@ -155,7 +155,7 @@ def aggregate_by_journalquery(querystr):
         assert len(departmentIDList) == len(authorIDList)
         for i in range(0, len(departmentIDList)):
             currenttie = tie_article_author_department(article_id, author_id, department_id)
-
+            
     
 
     #print(CleanExtractDepartmentLocation(i))

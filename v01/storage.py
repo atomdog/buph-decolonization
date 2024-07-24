@@ -70,12 +70,14 @@ def insert_department(departmentName, location):
     conn.commit()
     return cursor.lastrowid
 
-def insert_article_author(article_id, author_id, department_id):
+def tie_article_author_department(article_id, author_id, department_id):
     cursor.execute('''
     INSERT INTO ArticleAuthors (article_id, author_id, department_id)
     VALUES (?, ?, ?)
     ''', (article_id, author_id, department_id))
     conn.commit()
+    return cursor.lastrowid
+
 
 if __name__ == "__main__":
     instantiate()

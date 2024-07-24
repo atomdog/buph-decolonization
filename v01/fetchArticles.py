@@ -4,6 +4,7 @@ from geopy.geocoders import Nominatim
 import json 
 
 MAPBOXTOKEN = open("mapbox.txt", "r").read().strip()
+#given an article ID number, we request and parse the page. we return a json containing our data.
 def getByArticleID(article_id):
     url = f'https://pubmed.ncbi.nlm.nih.gov/{article_id}/?format=pubmed'
     response = requests.get(url)
@@ -60,6 +61,7 @@ def getByArticleID(article_id):
         print(url)
     return article_info
 
+#this takes two arguments: the constructed query for the journal and the page number of the results we want to return.
 def getByJournal(journal_query, pagenum):
     if not isinstance(journal_query, str):
         print(f"Assertion Error: A string is required but you passed a: {type(journal_query).__name__}")
@@ -74,6 +76,7 @@ def getByJournal(journal_query, pagenum):
         article_id_list.append(link['href'])
     return article_id_list
 
+#this takes the string containing the institution and geolocates it, returning a pair of coordinates (latitude, longitude)
 def mapboxGeolocate(fuzzloc):
     #print(">> Accessing Mapbox API: " + fuzzloc)
     location =[]
@@ -90,7 +93,7 @@ def mapboxGeolocate(fuzzloc):
 
     return(location)
 
-
+#this cleans and extracts department locations.
 def CleanExtractDepartmentLocation(departmentstring):
     latlong = None
     #print("> Cleaning and Extracting Department Location: ")
@@ -107,35 +110,53 @@ def CleanExtractDepartmentLocation(departmentstring):
 
 
 # Example usage:
-
 articlesForJournal_cell = (getByJournal('?term="Cell"%5Bjour%5D&sort=date&sort_order=desc', 1))
 articleStore = []
 for i in range(0, len(articlesForJournal_cell)):
     print(str(i) + " of "+ str(len(articlesForJournal_cell)))
     articleStore.append()
 
-#print(articleStore)
+#given a journal query, we 
+# 1. get the ID of every article on the first page of results (most recent)
+# 2. get the 
 def aggregate_by_journalquery(querystr):
     articlesForJournal= (getByJournal(querystr, 1))
-    for colel
-    getByArticleID(int(articlesForJournal[i].replace("/","")))
-    articleItems = articleStore[i]['articleTitle']
-    authorIDList = []
-    departmentIDList = []
-    article_id = insert_article(articleStore[i]['articleTitle'], 
-                                articleStore[i]['journalTitle'],
-                                articleStore[i]['datePublished'],
-                                articleStore[i]['abstract'])
-
-    for author in articleStore[i]['authorList']:
-        authorID = insert_author(author)
-        authorIDList.append(authorID)
-
-    for department in articleStore[i]['departmentList']
-        extracted = CleanExtractDepartmentLocation(department)
-        departmentID = insert_department(extracted[0], extracted[1][0], extracted[1][1])
-        departmentIDList.append(departmentID)
+    for i in range(0, len(articlesForJournal)):
+        #using the article ID, get and parse data
+        current_item = getByArticleID(int(articlesForJournal[i].replace("/","")))
     
+        articleItems = current_item[i]['articleTitle']
+        #these two variables keep track of our author and department insertion IDs so we can tie them to the article
+        authorIDList = []
+        departmentIDList = []
+
+        #insert the article into the database, this returns the article ID
+        #store the current working article ID in the variable article_id
+        #this is necessary for later to match our author
+        article_id = insert_article(current_item['articleTitle'], 
+                                current_item['journalTitle'],
+                                current_item['datePublished'],
+                                current_item['abstract'])
+
+        #for every author in the author list, insert the author
+        #store the ID
+        for author in current_item['authorList']:
+            authorID = insert_author(author)
+            authorIDList.append(authorID)
+        #for every department in the department list, insert the department
+        #store the ID
+        for department in current_item['departmentList']
+            extracted = CleanExtractDepartmentLocation(department)
+            departmentID = insert_department(extracted[0], extracted[1][0], extracted[1][1])
+            departmentIDList.append(departmentID)
+        
+        #now the identifiers for the authors and departments must be tied to the current article.
+        #we will make use of the  author, article, department database
+        assert len(departmentIDList) == len(authorIDList)
+        for i in range(0, len(departmentIDList)):
+            currenttie = tie_article_author_department(article_id, author_id, department_id)
+
     
 
     #print(CleanExtractDepartmentLocation(i))
+aggregate_by_journalquery(querystr='?term="Cell"%5Bjour%5D&sort=date&sort_order=desc')

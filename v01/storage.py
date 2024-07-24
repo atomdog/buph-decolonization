@@ -40,11 +40,11 @@ def instantiate():
         department_id INTEGER,
         FOREIGN KEY (article_id) REFERENCES Articles(article_id),
         FOREIGN KEY (author_id) REFERENCES Authors(author_id),
-        FOREIGN KEY (department_id) REFERENCES Departments(department_id),
-        PRIMARY KEY (article_id, author_id)
+        FOREIGN KEY (department_id) REFERENCES Departments(department_id)
     )
     ''')
 
+#        PRIMARY KEY (article_id, author_id, department_id)
 
 def insert_article(articleTitle, journalTitle, datePublished, abstract):
     cursor.execute('''
@@ -62,11 +62,11 @@ def insert_author(authorName):
     conn.commit()
     return cursor.lastrowid
 
-def insert_department(departmentName, location):
+def insert_department(departmentName, latitude, longitude):
     cursor.execute('''
-    INSERT INTO Departments (departmentName, location)
-    VALUES (?, ?)
-    ''', (departmentName, location))
+    INSERT INTO Departments (departmentName, latitude, longitude)
+    VALUES (?, ?, ?)
+    ''', (departmentName, latitude, longitude))
     conn.commit()
     return cursor.lastrowid
 

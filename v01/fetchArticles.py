@@ -81,21 +81,23 @@ def getByJournal(journal_query, pagenum):
 
 #this takes the string containing the institution and geolocates it, returning a pair of coordinates (latitude, longitude)
 def mapboxGeolocate(fuzzloc):
-    #print(">> Accessing Mapbox API: " + fuzzloc)
-    location =[]
-    url = "https://api.mapbox.com/search/geocode/v6/forward?q="+fuzzloc+"&access_token="+MAPBOXTOKEN
-    data = requests.get(url).text
-    
-    data = json.loads(data)
-    
-    if data['features']:
-        # Extract the coordinates
-        coordinates = data['features'][0]['geometry']['coordinates']
-        location = [coordinates[1], coordinates[0]]
-    else:
-        print(data)
-    #print(">> Mapbox Query Resulted in: " +str(location))
-
+    try:
+        #print(">> Accessing Mapbox API: " + fuzzloc)
+        location =[]    
+        url = "https://api.mapbox.com/search/geocode/v6/forward?q="+fuzzloc+"&access_token="+MAPBOXTOKEN
+        data = requests.get(url).text
+        
+        data = json.loads(data)
+        
+        if 'features' in data.keys():
+            # Extract the coordinates
+            coordinates = data['features'][0]['geometry']['coordinates']
+            location = [coordinates[1], coordinates[0]]
+        else:
+            print(data)
+        #print(">> Mapbox Query Resulted in: " +str(location))
+    except:
+        location=[]
     return(location)
 
 #this cleans and extracts department locations.
@@ -108,11 +110,34 @@ def CleanExtractDepartmentLocation(departmentstring):
         departmentstring = departmentstring.split(";")[0]
     try:
         latlong = mapboxGeolocate(departmentstring)
-
+        assert len(latlong)!=0
+            
     except Exception as e:
-        print("Exception geolocating...")
-        print(e)
-        print(departmentstring)
+        print(" ? Hit Exception in CleanExtractDepartmentLocation...")
+        try: 
+            stringlength = len(departmentstring)
+            if(stringlength >= 20):
+                print(" ? Shortening string... ")
+                
+                new_dept_string = " ".join(departmentstring.split(" ")[len(departmentstring)%20:stringlength])
+                print(" ? Department String Shortened for Geolocation: ", departmentstring, "\n", "-> \n", new_dept_string)
+                #new_dept_string = departmentstring[26%departmentstring:stringlength]
+                latlong = mapboxGeolocate(new_dept_string)
+                assert len(latlong) == 2
+        except Exception as e2:
+            print(" ?? Second exception ...")
+            print(e2)
+            print(latlong)
+
+
+        #print("Exception geolocating...")
+        #print(e)
+        #print(departmentstring)
+    print("## Geolocation data: ")
+    print("# Department String: ", departmentstring)
+    print("# Latitude: ", latlong[0])
+    print("# Longitude: ", latlong[1])
+    print("## ----------------")
     return([departmentstring, latlong])
 
 
@@ -150,6 +175,7 @@ def aggregate_by_journalquery(querystr):
             #for every author in the author list, insert the author
             #store the ID
             #print(current_item)
+            
             for author in current_item['authorsList']:
                 author_id = storage.insert_author(author)
                 authorIDList.append(author_id)

@@ -78,6 +78,75 @@ def tie_article_author_department(article_id, author_id, department_id):
     conn.commit()
     return cursor.lastrowid
 
+# Retrieve all articles
+def retrieve_all_articles():
+    cursor.execute('SELECT * FROM Articles')
+    return cursor.fetchall()
+
+# Retrieve article by ID
+def retrieve_article_by_id(article_id):
+    cursor.execute('SELECT * FROM Articles WHERE article_id = ?', (article_id,))
+    return cursor.fetchone()
+
+# Retrieve all authors
+def retrieve_all_authors():
+    cursor.execute('SELECT * FROM Authors')
+    return cursor.fetchall()
+
+# Retrieve author by ID
+def retrieve_author_by_id(author_id):
+    cursor.execute('SELECT * FROM Authors WHERE author_id = ?', (author_id,))
+    return cursor.fetchone()
+
+# Retrieve all departments
+def retrieve_all_departments():
+    cursor.execute('SELECT * FROM Departments')
+    return cursor.fetchall()
+
+# Retrieve department by ID
+def retrieve_department_by_id(department_id):
+    cursor.execute('SELECT * FROM Departments WHERE department_id = ?', (department_id,))
+    return cursor.fetchone()
+
+# Retrieve all articles by a specific author
+def retrieve_articles_by_author(author_id):
+    cursor.execute('''
+    SELECT a.article_id, a.articleTitle, a.journalTitle, a.datePublished, a.abstract
+    FROM Articles a
+    JOIN ArticleAuthors aa ON a.article_id = aa.article_id
+    WHERE aa.author_id = ?
+    ''', (author_id,))
+    return cursor.fetchall()
+
+# Retrieve all authors of a specific article
+def retrieve_authors_by_article(article_id):
+    cursor.execute('''
+    SELECT au.author_id, au.authorName
+    FROM Authors au
+    JOIN ArticleAuthors aa ON au.author_id = aa.author_id
+    WHERE aa.article_id = ?
+    ''', (article_id,))
+    return cursor.fetchall()
+
+# Retrieve all departments associated with a specific article
+def retrieve_departments_by_article(article_id):
+    cursor.execute('''
+    SELECT d.department_id, d.departmentName, d.latitude, d.longitude
+    FROM Departments d
+    JOIN ArticleAuthors aa ON d.department_id = aa.department_id
+    WHERE aa.article_id = ?
+    ''', (article_id,))
+    return cursor.fetchall()
+
+# Retrieve all articles associated with a specific department
+def retrieve_articles_by_department(department_id):
+    cursor.execute('''
+    SELECT a.article_id, a.articleTitle, a.journalTitle, a.datePublished, a.abstract
+    FROM Articles a
+    JOIN ArticleAuthors aa ON a.article_id = aa.article_id
+    WHERE aa.department_id = ?
+    ''', (department_id,))
+    return cursor.fetchall()
 
 if __name__ == "__main__":
     instantiate()

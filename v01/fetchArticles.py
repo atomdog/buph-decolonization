@@ -119,7 +119,7 @@ def CleanExtractDepartmentLocation(departmentstring):
             if(stringlength >= 20):
                 print(" ? Shortening string... ")
                 
-                new_dept_string = " ".join(departmentstring.split(" ")[len(departmentstring)%20:stringlength])
+                new_dept_string = " ".join(departmentstring.replace("-", " ").split(" ")[len(departmentstring)%20:stringlength])
                 print(" ? Department String Shortened for Geolocation: ", departmentstring, "\n", "-> \n", new_dept_string)
                 #new_dept_string = departmentstring[26%departmentstring:stringlength]
                 latlong = mapboxGeolocate(new_dept_string)
@@ -128,8 +128,17 @@ def CleanExtractDepartmentLocation(departmentstring):
             print(" ?? Second exception ...")
             print(e2)
             print(latlong)
+            stringlength = len(new_dept_string)
+                
+            new_dept_string = " ".join(new_dept_string.replace("-", " ").split(" ")[len(new_dept_string)%15:stringlength])
+            print(" ? Department String Shortened for Geolocation: ", new_dept_string, "\n", "-> \n", new_dept_string)
+            #new_dept_string = departmentstring[26%departmentstring:stringlength]
+            latlong = mapboxGeolocate(new_dept_string)
 
 
+    if(len(latlong)!=2):
+        return([departmentstring, [0, 0]])
+    
         #print("Exception geolocating...")
         #print(e)
         #print(departmentstring)
@@ -138,6 +147,7 @@ def CleanExtractDepartmentLocation(departmentstring):
     print("# Latitude: ", latlong[0])
     print("# Longitude: ", latlong[1])
     print("## ----------------")
+
     return([departmentstring, latlong])
 
 
@@ -148,9 +158,12 @@ def CleanExtractDepartmentLocation(departmentstring):
 # 1. get the ID of every article on the first page of results (most recent)
 # 2. get the 
 def aggregate_by_journalquery(querystr):
-    articlesForJournal= (getByJournal(querystr, 1))
+    articlesForJournal= []
+    for i in range(1, 5):
+        articlesForJournal += getByJournal(querystr, i)
+    
     bad_count = 0
-    for i in range(0, len(articlesForJournal)):
+    for i in range(0, len(articlesForJournal)): 
         #using the article ID, get and parse data
         current_item = getByArticleID(int(articlesForJournal[i].replace("/","")))
         #check to make sure this is a valid article - some are not correctly formatted nor parseable
@@ -193,7 +206,14 @@ def aggregate_by_journalquery(querystr):
             #we will make use of the  author, article, department database
             assert len(departmentIDList) == len(authorIDList)
             for i in range(0, len(departmentIDList)):
-                currenttie = storage.tie_article_author_department(article_id, author_id, department_id)
+                print(">>> Tying:")
+                print("> Article: ", str(article_id))
+                print("> Author: ", str(authorIDList[i]))
+                print("> Department: ", str(departmentIDList[i]))
+                print(">>>>>>>>>>")
+
+                currenttie = storage.tie_article_author_department(article_id, authorIDList[i], departmentIDList[i])
+
     else:
         bad_count+=1
 
@@ -201,3 +221,6 @@ def aggregate_by_journalquery(querystr):
 
     #print(CleanExtractDepartmentLocation(i))
 aggregate_by_journalquery(querystr='?term="Cell"%5Bjour%5D&sort=date&sort_order=desc')
+aggregate_by_journalquery('?term="Lancet"%5Bjour%5D&sort=date&sort_order=desc')
+#aggregate_by_journalquery('?term="Am+J+Public+Health"%5Bjour%5D&sort=date&sort_order=desc')
+aggregate_by_journalquery('?sort=date&term="BMC+Public+Health"%5BJournal%5D')

@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from geopy.geocoders import Nominatim
 import json 
-
+# storage library for this project
 import storage 
 
 MAPBOXTOKEN = open("mapbox.txt", "r").read().strip()
@@ -157,9 +157,9 @@ def CleanExtractDepartmentLocation(departmentstring):
 #given a journal query, we 
 # 1. get the ID of every article on the first page of results (most recent)
 # 2. get the 
-def aggregate_by_journalquery(querystr):
+def aggregate_by_journalquery(querystr, pages):
     articlesForJournal= []
-    for i in range(1, 5):
+    for i in range(1, pages):
         articlesForJournal += getByJournal(querystr, i)
     
     bad_count = 0
@@ -217,10 +217,19 @@ def aggregate_by_journalquery(querystr):
     else:
         bad_count+=1
 
-    
+# Aggregation
 
-    #print(CleanExtractDepartmentLocation(i))
-aggregate_by_journalquery(querystr='?term="Cell"%5Bjour%5D&sort=date&sort_order=desc')
-aggregate_by_journalquery('?term="Lancet"%5Bjour%5D&sort=date&sort_order=desc')
-#aggregate_by_journalquery('?term="Am+J+Public+Health"%5Bjour%5D&sort=date&sort_order=desc')
-aggregate_by_journalquery('?sort=date&term="BMC+Public+Health"%5BJournal%5D')
+#Number of pages to collect:
+NUM_PAGES = 3
+#Journals Targeted:
+# Cell, Lancet, Nature Genetics, Public Health Nutrition, NOT!!! American Journal of Public Health
+# Cell
+aggregate_by_journalquery(querystr='?term="Cell"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
+# Lancet HIV
+aggregate_by_journalquery(querystr='?term="Lancet+HIV"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
+# Nature Genetics
+aggregate_by_journalquery(querystr='?term=%22Nat+Genet%22%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
+# Public Health Nutrition
+aggregate_by_journalquery(querystr='?term=%22Public%20Health%20Nutr%22[jour]', pages=NUM_PAGES)
+# American Journal of Public Health
+#aggregate_by_journalquery(querystr='?term=%22Am+J+Public+Health%22%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)

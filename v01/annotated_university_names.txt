@@ -1065,111 +1065,111 @@
   },
   {
     "listed": "Cell Biology and Biophysics Unit, European Molecular Biology Laboratory (EMBL), Heidelberg 69117, Germany.",
-    "annotated_name": ""
+    "annotated_name": "European Molecular Biology Laboratory"
   },
   {
     "listed": "Max Planck Institute of Immunobiology and Epigenetics, Freiburg 79108, Germany.",
-    "annotated_name": ""
+    "annotated_name": "Max Planck Institute"
   },
   {
     "listed": "Max Planck Institute of Immunobiology and Epigenetics, Freiburg 79108, Germany.",
-    "annotated_name": ""
+    "annotated_name": "Max Planck Institute"
   },
   {
     "listed": "Fraunhofer Institute for Translational Medicine and Pharmacology ITMP, Immunology and Allergology IA, Berlin 12203, Germany",
-    "annotated_name": ""
+    "annotated_name": "Fraunhofer Institute"
   },
   {
     "listed": "Fraunhofer Institute for Translational Medicine and Pharmacology ITMP, Immunology and Allergology IA, Berlin 12203, Germany",
-    "annotated_name": ""
+    "annotated_name": "Fraunhofer Institute"
   },
   {
     "listed": "Fraunhofer Institute for Translational Medicine and Pharmacology ITMP, Immunology and Allergology IA, Berlin 12203, Germany",
-    "annotated_name": ""
+    "annotated_name": "Fraunhofer Institute"
   },
   {
     "listed": "Department of Dermatology, Universitätsklinikum Münster, Münster 48149, Germany.",
-    "annotated_name": ""
+    "annotated_name": "Universitätsklinikum Münster"
   },
   {
     "listed": "Medical Biology and Electron Microscopy Center, Rostock University Medical Center, Rostock 18057, Germany",
-    "annotated_name": ""
+    "annotated_name": "Rostock University"
   },
   {
     "listed": "Max Planck Institute of Immunobiology and Epigenetics, Freiburg 79108, Germany.",
-    "annotated_name": ""
+    "annotated_name": "Max Planck Institute"
   },
   {
     "listed": "Max Planck Institute of Immunobiology and Epigenetics, Freiburg 79108, Germany",
-    "annotated_name": ""
+    "annotated_name": "Max Planck Institute"
   },
   {
     "listed": "Howard Hughes Medical Institute, Department of Cell Biology, Harvard Medical School, Boston, MA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Harvard Medical School"
   },
   {
     "listed": "State Key Laboratory of Protein and Plant Gene Research, School of Life Sciences and Peking-Tsinghua Center for Life Sciences, Peking University, Beijing, China.",
-    "annotated_name": ""
+    "annotated_name": "Peking University"
   },
   {
     "listed": "Department of Biological Sciences, Columbia University, New York, NY 10027, USA.",
-    "annotated_name": ""
+    "annotated_name": "Columbia University"
   },
   {
     "listed": "Department of Cell Biology, Harvard Medical School, Boston, MA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Harvard Medical School"
   },
   {
     "listed": "Howard Hughes Medical Institute, Department of Cell Biology, Harvard Medical School, Boston, MA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Harvard Medical School"
   },
   {
     "listed": "Institute for Cancer Genetics, Department of Pediatrics, and Department of Genetics and Development, Columbia University Irving Medical Center, New York, NY 10032, USA.",
-    "annotated_name": ""
+    "annotated_name": "Columbia University"
   },
   {
     "listed": "Howard Hughes Medical Institute, Department of Cell Biology, Harvard Medical School, Boston, MA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Harvard Medical School"
   },
   {
     "listed": "Department of Biological Sciences, Columbia University, New York, NY 10027, USA.",
-    "annotated_name": ""
+    "annotated_name": "Columbia University"
   },
   {
     "listed": "Institute for Cancer Genetics, Department of Pediatrics, and Department of Genetics and Development, Columbia University Irving Medical Center, New York, NY 10032, USA.",
-    "annotated_name": ""
+    "annotated_name": "Columbia University"
   },
   {
     "listed": "Department of Cell Biology, Harvard Medical School, Boston, MA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Harvard Medical School"
   },
   {
     "listed": "Department of Biological Sciences, Columbia University, New York, NY 10027, USA.",
-    "annotated_name": ""
+    "annotated_name": "Columbia University"
   },
   {
     "listed": "State Key Laboratory of Protein and Plant Gene Research, School of Life Sciences and Peking-Tsinghua Center for Life Sciences, Peking University, Beijing, China. ",
-    "annotated_name": ""
+    "annotated_name": "Peking University"
   },
   {
     "listed": "Howard Hughes Medical Institute, Department of Cell Biology, Harvard Medical School, Boston, MA, USA. ",
-    "annotated_name": ""
+    "annotated_name": "Harvard Medical School"
   },
   {
     "listed": "Department of Biology, University of Copenhagen, Copenhagen 2200, Denmark",
-    "annotated_name": ""
+    "annotated_name": "University of Copenhagen"
   },
   {
     "listed": "Novo Nordisk Foundation Center for Protein Research, University of Copenhagen, Copenhagen 2200, Denmark.",
-    "annotated_name": ""
+    "annotated_name": "University of Copenhagen"
   },
   {
     "listed": "Tokyo Metropolitan Institute of Medical Science, Tokyo 1568506, Japan.",
-    "annotated_name": ""
+    "annotated_name": "Tokyo Metropolitan Institute of Medical Science"
   },
   {
     "listed": "Department of Biology, University of Copenhagen, Copenhagen 2200, Denmark.",
-    "annotated_name": ""
+    "annotated_name": "University of Copenhagen"
   },
   {
     "listed": "Novo Nordisk Foundation Center for Protein Research, University of Copenhagen, Copenhagen 2200, Denmark.",
@@ -1293,7 +1293,7 @@
   },
   {
     "listed": "Centre for Infectious Disease Control, National Institute for Public Health and the Environment (RIVM), Bilthoven, the Netherlands.",
-    "annotated_name": ""National Institute for Public Health and the Environment (RIVM), Bilthoven, the Netherlands
+    "annotated_name": "National Institute for Public Health and the Environment (RIVM), Bilthoven, the Netherlands"
   },
   {
     "listed": "Centre for Infectious Disease Control, National Institute for Public Health and the Environment (RIVM), Bilthoven, the Netherlands",
@@ -1649,7 +1649,7 @@
   },
   {
     "listed": "Fundação Ariel Glaser contra o SIDA Pediátrico, Maputo, Mozambique.",
-    "annotated_name": "Fundação Ariel Glaser contra o SIDA Pediátrico, Maputo, Mozambique.""
+    "annotated_name": "Fundação Ariel Glaser contra o SIDA Pediátrico, Maputo, Mozambique."
   },
   {
     "listed": "Fundação Ariel Glaser contra o SIDA Pediátrico, Maputo, Mozambique.",
@@ -1709,7 +1709,7 @@
   },
   {
     "listed": "Ragon Institute of MGH, MIT and Harvard, Boston, MA, USA",
-    "annotated_name": ""Ragon Institute of MGH, MIT and Harvard"
+    "annotated_name": "Ragon Institute of MGH, MIT and Harvard"
   },
   {
     "listed": "Department of Women's and Children's Health, University of Padua, Padua, Italy.",
@@ -1981,7 +1981,7 @@
   },
   {
     "listed": "French Embassy, French Ministry of Foreign Affairs, Antananarivo 101, Madagascar",
-    "annotated_name": ""
+    "annotated_name": "French Ministry of Foreign Affairs"
   },
   {
     "listed": "Department of Medicine, University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.",
@@ -2001,7 +2001,7 @@
   },
   {
     "listed": "Division of Infectious Diseases, University of Miami, Miller School of Medicine, Miami, FL, USA.",
-    "annotated_name": ""
+    "annotated_name": "University of Miami"
   },
   {
     "listed": "Ruane Clinical Research, Los Angeles, CA, USA.",
@@ -2013,19 +2013,19 @@
   },
   {
     "listed": "Men's Health Foundation, Los Angeles, CA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Men's Health Foundation, Los Angeles, CA, USA."
   },
   {
     "listed": "Central Texas Clinical Research, Austin, TX, USA.",
-    "annotated_name": ""
+    "annotated_name": "Central Texas Clinical Research, Austin, TX, USA."
   },
   {
     "listed": "Midway Research Center, Fort Pierce, FL, USA.",
-    "annotated_name": ""
+    "annotated_name": "Midway Research Center, Fort Pierce, FL, USA."
   },
   {
     "listed": "Royal Sussex County Hospital, University Hospitals Sussex NHS Foundation Trust, Brighton, UK.",
-    "annotated_name": ""
+    "annotated_name": "Royal Sussex County Hospital"
   },
   {
     "listed": "The Crofoot Research Centre, Houston, TX, USA.",
@@ -2069,7 +2069,7 @@
   },
   {
     "listed": "Philadelphia FIGHT Community Health Centres, Philadelphia, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Philadelphia FIGHT Community Health Centres, Philadelphia, PA, USA."
   },
   {
     "listed": "The Fenway Institute, Fenway Health, Boston, MA, USA",
@@ -2273,7 +2273,7 @@
   },
   {
     "listed": "Center for Clinical Research, Kenya Medical Research Institute, Thika, Kenya",
-    "annotated_name": "Kenya Medical Research Institute
+    "annotated_name": "Kenya Medical Research Institute"
   },
   {
     "listed": "Liver Unit, Vall d'Hebron University Hospital, Vall d'Hebron Institute for Research, Universitat Autònoma de Barcelona, Spanish Network of Biomedical Research on Liver and Digestive Diseases, Barcelona, Spain. ",
@@ -2317,7 +2317,7 @@
   },
   {
     "listed": "Division of Liver Diseases, Department of Medicine, Icahn School of Medicine at Mount Sinai, New York NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Icahn School of Medicine at Mount Sinai"
   },
   {
     "listed": "Infectious Disease Department, Vall d'Hebron University Hospital, Vall d'Hebron Institute for Research, Universitat Autònoma de Barcelona, Spanish Network of Biomedical Research on Liver and Digestive Diseases, Barcelona, Spain.",
@@ -2329,19 +2329,19 @@
   },
   {
     "listed": "Nature Genetics, . chiara.anania@nature.com.",
-    "annotated_name": ""
+    "annotated_name": "Nature Genetics"
   },
   {
     "listed": "Nature Genetics, . safia.danovi@nature.com.",
-    "annotated_name": ""
+    "annotated_name": "Nature Genetics"
   },
   {
     "listed": "Nature Genetics, . k.vogan@us.nature.com.",
-    "annotated_name": ""
+    "annotated_name": "Nature Genetics"
   },
   {
     "listed": "Nature Genetics, . tiago.faial@us.nature.com.",
-    "annotated_name": ""
+    "annotated_name": "Nature Geneticsf"
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
@@ -2389,87 +2389,87 @@
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA"
   },
   {
     "listed": "Geisinger, Danville, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Geisinger, Danville, PA, USA"
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA"
   },
   {
     "listed": "Geisinger, Danville, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Geisinger, Danville, PA, USA"
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA"
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",
-    "annotated_name": ""
+    "annotated_name": "AncestryDNA, Lehi, UT, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Department of Genetics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "University of Pennsylvania"
   },
   {
     "listed": "Department of Genetics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA. CN  - Colorado Center for Precision Medicine CN  - Mayo Clinic Project Generation CN  - Regeneron Genetics Center CN  - University of California Los Angeles ATLAS Collaboration",
@@ -2477,63 +2477,63 @@
   },
   {
     "listed": "Department of Genetics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "University of Pennsylvania"
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Department of Genetics, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "University of Pennsylvania"
   },
   {
     "listed": "Geisinger, Danville, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Geisinger, Danville, PA, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Geisinger, Danville, PA, USA.",
-    "annotated_name": ""
+    "annotated_name": "Geisinger, Danville, PA, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
-    "annotated_name": ""
+    "annotated_name": "Regeneron Genetics Center, Tarrytown, NY, USA."
   },
   {
     "listed": "AncestryDNA, Lehi, UT, USA.",

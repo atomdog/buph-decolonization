@@ -219,8 +219,8 @@ def aggregate_by_journalquery(querystr, pages):
 
 # Aggregation
 
-#Number of pages to collect:
-NUM_PAGES = 3
+#Number of pages to clolect:
+NUM_PAGES = 4
 #Journals Targeted:
 # Cell, Lancet, Nature Genetics, Public Health Nutrition, NOT!!! American Journal of Public Health
 # Cell
@@ -231,5 +231,9 @@ aggregate_by_journalquery(querystr='?term="Lancet+HIV"%5Bjour%5D&sort=date&sort_
 aggregate_by_journalquery(querystr='?term=%22Nat+Genet%22%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
 # Public Health Nutrition
 aggregate_by_journalquery(querystr='?term=%22Public%20Health%20Nutr%22[jour]', pages=NUM_PAGES)
+# Lancet Public Healths
+aggregate_by_journalquery(querystr='?term="Lancet+Public+Health"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
+# Environmental Health Perspective
+aggregate_by_journalquery(querystr='?term="Environ+Health+Perspect"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGESss)
 # American Journal of Public Health
 #aggregate_by_journalquery(querystr='?term=%22Am+J+Public+Health%22%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)

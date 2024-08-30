@@ -237,7 +237,7 @@ querylist = [   '?term="Cell"%5Bjour%5D&sort=date&sort_order=desc',
 
 
 #Page range to collect:
-PAGESTART = 5
+PAGESTART = 2
 PAGEEND = 9
 
 

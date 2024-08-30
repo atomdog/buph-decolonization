@@ -157,9 +157,12 @@ def CleanExtractDepartmentLocation(departmentstring):
 #given a journal query, we 
 # 1. get the ID of every article on the first page of results (most recent)
 # 2. get the 
-def aggregate_by_journalquery(querystr, pages):
+def aggregate_by_journalquery(querystr, pages_start, pages_end):
+    if(pages_start == None):
+        pages_start = 1
+
     articlesForJournal= []
-    for i in range(1, pages):
+    for i in range(pages_start, pages_end):
         articlesForJournal += getByJournal(querystr, i)
     
     bad_count = 0
@@ -219,21 +222,25 @@ def aggregate_by_journalquery(querystr, pages):
 
 # Aggregation
 
-#Number of pages to clolect:
-NUM_PAGES = 4
+
 #Journals Targeted:
 # Cell, Lancet, Nature Genetics, Public Health Nutrition, NOT!!! American Journal of Public Health
-# Cell
-aggregate_by_journalquery(querystr='?term="Cell"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
-# Lancet HIV
-aggregate_by_journalquery(querystr='?term="Lancet+HIV"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
-# Nature Genetics
-aggregate_by_journalquery(querystr='?term=%22Nat+Genet%22%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
-# Public Health Nutrition
-aggregate_by_journalquery(querystr='?term=%22Public%20Health%20Nutr%22[jour]', pages=NUM_PAGES)
-# Lancet Public Healths
-aggregate_by_journalquery(querystr='?term="Lancet+Public+Health"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
-# Environmental Health Perspective
-aggregate_by_journalquery(querystr='?term="Environ+Health+Perspect"%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGESss)
-# American Journal of Public Health
-#aggregate_by_journalquery(querystr='?term=%22Am+J+Public+Health%22%5Bjour%5D&sort=date&sort_order=desc', pages=NUM_PAGES)
+querylist = [   '?term="Cell"%5Bjour%5D&sort=date&sort_order=desc',
+                '?term="Lancet+HIV"%5Bjour%5D&sort=date&sort_order=desc',
+                '?term=%22Nat+Genet%22%5Bjour%5D&sort=date&sort_order=desc',
+                '?term=%22Public%20Health%20Nutr%22[jour]',
+                '?term="Lancet+Public+Health"%5Bjour%5D&sort=date&sort_order=desc',
+                '?term="Environ+Health+Perspect"%5Bjour%5D&sort=date&sort_order=desc',
+                '?term="Lancet+Glob+Health"%5Bjour%5D&sort=date&sort_order=desc']
+                
+
+
+
+#Page range to collect:
+PAGESTART = 5
+PAGEEND = 9
+
+
+
+for qi in querylist:
+    aggregate_by_journalquery(querystr=qi, pages_start=PAGESTART, pages_end=PAGEEND)

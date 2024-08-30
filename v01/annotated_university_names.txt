@@ -2341,7 +2341,7 @@
   },
   {
     "listed": "Nature Genetics, . tiago.faial@us.nature.com.",
-    "annotated_name": "Nature Geneticsf"
+    "annotated_name": "Nature Genetics"
   },
   {
     "listed": "Regeneron Genetics Center, Tarrytown, NY, USA.",
